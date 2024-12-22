@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Spotify Dashboard</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+  <h1>Spotify Dashboard</h1>
+  
+  <!-- Tabs -->
+  <div class="tabs">
+    <button class="tab-button active" data-tab="home">Inicio</button>
+    <button class="tab-button" data-tab="scatter">Gráfico de Scatter Plot</button>
+    <button class="tab-button" data-tab="bar">Gráfico de Barras</button>
+    <button class="tab-button" data-tab="table">Tabla de Datos</button>
+  </div>
+
+  <!-- Home -->
+  <div id="home" class="tab-content active">
+    <h2>Bienvenido al Dashboard de Spotify</h2>
+    <p>Realizado por Gabriel Emilio García Mazón</p>
+    <p>Docente: Lázaro Martínez</p>
+    <p>Diplomado Internacional BIG DATA 11/05</p>
+
+  </div>
+
+  <!-- Scatter Plot -->
+  <div id="scatter" class="tab-content">
+    <h2>Scatter Plot: Streams vs Track Score</h2>
+    <svg width="800" height="500"></svg>
+  </div>
+
+  <!-- Bar Chart -->
+  <div id="bar" class="tab-content">
+    <h2>Gráfico de Barras: Top Tracks por Streams</h2>
+    <label for="num-songs">Número de canciones:</label>
+    <input
+      type="number"
+      id="num-songs"
+      value="10"
+      min="1"
+      max="50"
+      step="1"
+    />
+    <svg width="100%" height="500"></svg>
+  </div>
+
+  <!-- Data Table -->
+  <div id="table" class="tab-content">
+    <h2>Tabla de Datos</h2>
+    <label for="num-rows">Número de filas:</label>
+    <input type="number" id="num-rows" value="25" min="1" step="1" />
+
+    <div class="sort-controls">
+        <button id="sort-by-streams-desc" class="sort-button">Ordenar por Streams (Desc)</button>
+        <button id="sort-by-streams-asc" class="sort-button">Ordenar por Streams (Asc)</button>
+        <button id="sort-by-track-asc" class="sort-button">Ordenar por Track (A-Z)</button>
+        <button id="sort-by-track-desc" class="sort-button">Ordenar por Track (Z-A)</button>        
+    </div>
+
+    <div class="table-container">
+      <table id="data-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Track</th>
+            <th>Album Name</th>
+            <th>Artist</th>
+            <th>Spotify Streams</th>
+            <th>Release Date</th>
+            <th>Spotify Popularity</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
