@@ -1,96 +1,164 @@
+/* General */
 body {
-    font-family: Arial, sans-serif;
-    margin: 20px;
-    text-align: center;
-  }
-  
+  font-family: Arial, sans-serif;
+  margin: 10px;
+  padding: 0;
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.5;
+  box-sizing: border-box;
+  overflow-x: hidden; /* Previene el scroll horizontal */
+}
+
+h1 {
+  font-size: 18px;
+  margin-bottom: 15px;
+  word-wrap: break-word;
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.tab-button {
+  flex: 1 1 auto; /* Botones flexibles */
+  max-width: 150px; /* Limita el tamaño máximo */
+  padding: 8px;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+  font-size: 12px;
+  cursor: pointer;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.tab-button.active {
+  background-color: #007bff;
+  color: #fff;
+  border-color: #007bff;
+}
+
+/* Tab Content */
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+/* Contenido de la tabla */
+.table-container {
+  max-height: 300px;
+  overflow-y: auto;
+  overflow-x: auto;
+  border: 1px solid #ccc;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+th,
+td {
+  padding: 6px 8px;
+  border: 1px solid #ccc;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+th {
+  background-color: #f2f2f2;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+/* Inputs y Botones */
+input[type="number"],
+select {
+  width: 100%;
+  max-width: 300px;
+  box-sizing: border-box;
+  padding: 6px;
+  font-size: 14px;
+}
+
+.sort-controls {
+  margin: 8px 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 5px;
+}
+
+.sort-button {
+  padding: 6px 10px;
+  font-size: 12px;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+
+.sort-button.active-sort {
+  background-color: #007bff;
+  color: #fff;
+}
+
+/* Responsive Ajustes */
+@media (max-width: 480px) {
   h1 {
-    margin-bottom: 20px;
-  }
-  
-  .tabs {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-  }
-  
-  .tab-button {
-    padding: 10px 20px;
-    margin: 0 5px;
-    border: 1px solid #ccc;
-    background-color: #f9f9f9;
-    cursor: pointer;
-  }
-  
-  .tab-button.active {
-    background-color: #007bff;
-    color: #fff;
-    border-color: #007bff;
-  }
-  
-  .tab-content {
-    display: none;
-  }
-  
-  .tab-content.active {
-    display: block;
-  }
-  
-  svg {
-    border: 1px solid #ccc;
-    margin: 20px auto;
-    display: block;
-  }
-  
-  .table-container {
-    max-height: 400px;
-    overflow-y: auto;
-    overflow-x: auto;
-    border: 1px solid #ccc;
-    margin: 0 auto;
-    width: 90%;
-  }
-  
-  table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  
-  th, td {
-    padding: 8px 12px;
-    border: 1px solid #ccc;
-    text-align: left;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-  
-  th {
-    background-color: #f2f2f2;
-    position: sticky;
-    top: 0;
-  }
-  
-  td:hover {
-    overflow: visible;
-    white-space: normal;
-  }
-  
-  .sort-controls {
-    margin: 10px;
-  }
-  
-  .tooltip {
-    position: absolute;
-    background: #fff;
-    border: 1px solid #ccc;
-    padding: 8px;
-    display: none;
+    font-size: 16px;
   }
 
-  .sort-button.active-sort {
-    background-color: #007bff;
-    color: #fff;
+  .tabs {
+    gap: 5px;
   }
-  
-  
+
+  .tab-button {
+    flex: 1 1 40%; /* Ocupa el 40% en pantallas pequeñas */
+    font-size: 10px;
+    padding: 5px;
+  }
+
+  table {
+    font-size: 10px;
+  }
+
+  th,
+  td {
+    padding: 4px 6px;
+  }
+
+  .table-container {
+    max-height: 200px;
+  }
+
+  input[type="number"],
+  select {
+    font-size: 12px;
+    padding: 4px;
+  }
+
+  .sort-controls {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .sort-button {
+    font-size: 10px;
+    padding: 5px;
+  }
+}
